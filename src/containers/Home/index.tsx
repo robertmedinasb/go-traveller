@@ -1,12 +1,17 @@
 import { FC } from "react";
-import { HeaderNav } from "../../components/HeaderNav/HeaderNav";
-import { Hero } from "../../components/Hero/Hero";
+import { CarouselImage } from "../../types/carousel_image";
 
-const Home: FC = () => {
+const Home: FC<{ carouselImages: CarouselImage[] }> = ({ carouselImages }) => {
   return (
     <>
-      <HeaderNav />
-      <Hero></Hero>
+      <div>
+        {carouselImages.map(({ imagen: { url, title, description } }, idx) => (
+          <div key={idx}>
+            <img src={url} alt={title} />
+            <p>{description}</p>
+          </div>
+        ))}
+      </div>
     </>
   );
 };

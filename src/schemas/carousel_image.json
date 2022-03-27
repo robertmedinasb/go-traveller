@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "CarouselImageResponse",
+  "title": "CarouselImageResponse",
+  "additionalProperties": false,
+  "definitions": {
+    "carouselImage": {
+      "additionalProperties": false,
+      "title": "CarouselImage",
+      "type": "object",
+      "properties": {
+        "slug": {
+          "type": "string"
+        },
+        "activo": {
+          "type": "boolean"
+        },
+        "imagen": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "contentType": {
+              "type": "string"
+            },
+            "fileName": {
+              "type": "string"
+            },
+            "size": {
+              "type": "number"
+            },
+            "url": {
+              "type": "string"
+            },
+            "width": {
+              "type": "number"
+            },
+            "height": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "title",
+            "description",
+            "contentType",
+            "fileName",
+            "size",
+            "url",
+            "width",
+            "height"
+          ]
+        }
+      },
+      "required": [
+        "slug",
+        "activo",
+        "imagen"
+      ]
+    }
+  },
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "imagenesCarruselCollection": {
+          "additionalProperties": false,
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/carouselImage"
+              }
+            },
+            "total": {
+              "type": "number"
+            }
+          },
+          "required": ["items", "total"]
+        }
+      },
+      "required": ["imagenesCarruselCollection"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["data"],
+  "type": "object"
+}

@@ -1,0 +1,3 @@
+export enum ActionTypes {
+  SET_CAROUSEL_IMAGES = "[HERO] SET_CAROUSEL_HERO_IMAGES",
+}
